@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.6.final using JasperReports Library version 6.20.6-5c96b6aa8a39ac1dc6b6bea4b81168e16dd39231  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="izvestajObilasci" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ca2b63a8-e47c-4285-a04b-8b552f3128d0">
+	<parameter name="tipNekretnine" class="java.lang.String"/>
+	<parameter name="datumOb" class="java.util.Date"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="datum" class="java.util.Date"/>
+	<field name="nekretnina.cena" class="java.lang.Integer"/>
+	<field name="nekretnina.prodavac.username" class="java.lang.String"/>
+	<field name="nekretnina.adresa" class="java.lang.String"/>
+	<field name="nekretnina.grad.naziv" class="java.lang.String"/>
+	<field name="nekretnina.idNekretnina" class="java.lang.Integer"/>
+	<field name="nekretnina.grad.idGrad" class="java.lang.Integer"/>
+	<variable name="brojNekretnina" class="java.lang.Integer" calculation="DistinctCount">
+		<variableExpression><![CDATA[$F{nekretnina.idNekretnina}]]></variableExpression>
+	</variable>
+	<group name="Group1">
+		<groupExpression><![CDATA[$F{nekretnina.grad.idGrad}]]></groupExpression>
+		<groupHeader>
+			<band height="76">
+				<textField>
+					<reportElement x="280" y="10" width="100" height="30" uuid="bbf332bf-dd65-4df8-8131-0dc590694b7b"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{nekretnina.grad.naziv}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="190" y="10" width="81" height="31" uuid="bebe738b-d9f5-4550-94d8-f5beadec8a3f"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[Mesto]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="80" y="62" width="100" height="14" backcolor="#FF6461" uuid="bccacff0-a863-4b43-ab2d-016647d63d17">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d28e4f6b-9518-4432-9744-e187e1cf1b13"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[Datum]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="185" y="62" width="100" height="14" backcolor="#FF6461" uuid="ea59b5cc-c39c-4b24-a348-dacbeb6097a2">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8278413b-1dee-47a2-af0a-30715436a592"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[Cena]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="290" y="62" width="100" height="14" backcolor="#FF6461" uuid="6f25a8eb-4a80-4104-8d94-2d47c1894ee5">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="89bc18cf-56cc-4f60-a6b7-07056fc1df1a"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[Prodavac]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="395" y="62" width="100" height="14" backcolor="#FF6461" uuid="d152e439-420e-4d17-83be-1af6e86cf510">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7ec4907c-e6a6-4cb5-b6cb-cd82ec78b5cb"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[Adresa]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="17"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="187" y="14" width="181" height="51" uuid="79c93d2e-32b3-4d40-877c-028661b52f9c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Izveštaj obilazaka]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="72" splitType="Stretch">
+			<staticText>
+				<reportElement x="100" y="21" width="101" height="31" uuid="0c56f897-4a29-4c36-afc3-26145d8cfbcf"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Tip nekretnine]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="190" y="21" width="100" height="30" uuid="52775107-e486-47ee-a62d-0aeadb7f9a54"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none"/>
+				<textFieldExpression><![CDATA[$P{tipNekretnine}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="310" y="21" width="80" height="31" uuid="c18ca786-26de-4ce2-a892-dad7de0025e4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Posle datuma]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="400" y="21" width="100" height="30" uuid="9e334c26-f28d-48a3-83d0-e721a3b8cd12"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{datumOb}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="14" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="31" splitType="Stretch">
+			<textField>
+				<reportElement mode="Opaque" x="80" y="0" width="100" height="30" backcolor="#65EBA3" uuid="40a33c9d-06e0-4e8e-8a42-9a12c39aff8a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d28e4f6b-9518-4432-9744-e187e1cf1b13"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{datum}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="185" y="0" width="100" height="30" backcolor="#65EBA3" uuid="2145f699-07fd-407c-b890-e340776f2fad">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8278413b-1dee-47a2-af0a-30715436a592"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("¤#,##0.00").format($F{nekretnina.cena})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="290" y="0" width="100" height="30" backcolor="#65EBA3" uuid="a345dfb2-4dd8-40a1-92cf-7693612fef5e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="89bc18cf-56cc-4f60-a6b7-07056fc1df1a"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{nekretnina.prodavac.username}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="395" y="0" width="100" height="30" backcolor="#65EBA3" uuid="50de11f1-8ddc-482d-8a97-dfe12afc892d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7ec4907c-e6a6-4cb5-b6cb-cd82ec78b5cb"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{nekretnina.adresa}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="55" splitType="Stretch">
+			<textField>
+				<reportElement x="227" y="12" width="100" height="30" uuid="fcade595-9db7-4e13-945a-5f058841acf3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="46" splitType="Stretch">
+			<textField>
+				<reportElement x="285" y="8" width="100" height="30" uuid="fc8ca902-1772-4611-8109-78b5de9bd76d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{brojNekretnina}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="199" y="10" width="91" height="31" uuid="d5dab751-1966-428f-b332-ba951fe2d3f6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Broj nekretnina:]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

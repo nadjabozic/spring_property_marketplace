@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.6.final using JasperReports Library version 6.20.6-5c96b6aa8a39ac1dc6b6bea4b81168e16dd39231  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="izvestajNajskuplje" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="114c43c6-de41-4442-a9e6-b1972015a5af">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<parameter name="tipNekretnine" class="java.lang.String"/>
+	<parameter name="cenaN" class="java.lang.Integer"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="prodavac.username" class="java.lang.String"/>
+	<field name="cena" class="java.lang.Integer"/>
+	<field name="adresa" class="java.lang.String"/>
+	<field name="kvadratura" class="java.lang.Integer"/>
+	<field name="grad.naziv" class="java.lang.String"/>
+	<variable name="prosecnaCena" class="java.lang.Long" calculation="Average">
+		<variableExpression><![CDATA[$F{cena}]]></variableExpression>
+	</variable>
+	<group name="Group1">
+		<groupExpression><![CDATA[$F{grad.naziv}]]></groupExpression>
+		<groupHeader>
+			<band height="73">
+				<textField>
+					<reportElement x="276" y="0" width="100" height="30" uuid="84c4bea7-68d2-40b6-b597-4bf19e6f4c7e"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{grad.naziv}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="170" y="0" width="101" height="30" uuid="1221441a-0f79-4322-9915-9e5f059e9474"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[Mesto:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="70" y="32" width="100" height="41" backcolor="#92FF38" uuid="89e7bcad-97a9-46a9-b723-d75433e164bf"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[Prodavac]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="170" y="32" width="100" height="41" backcolor="#92FF38" uuid="23855c4f-319c-4cf4-978c-dcd7511aeea4"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[Cena]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="270" y="32" width="100" height="41" backcolor="#92FF38" uuid="5d82c0a8-0eea-4d34-92b3-8137f08cd619"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[Adresa]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="370" y="32" width="100" height="41" backcolor="#92FF38" uuid="73a57d82-2157-48cf-a76e-1268baae8a48"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[Kvadratura]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="9"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="210" y="20" width="141" height="41" uuid="80c6dd9d-f662-4077-aa69-435ad26030dd"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Izveštaj o cenama nekretnina]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="75" splitType="Stretch">
+			<textField>
+				<reportElement x="180" y="20" width="100" height="30" uuid="e205a42a-40b7-4c96-a5e2-a31ab07efc0e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{tipNekretnine}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="84" y="20" width="91" height="30" uuid="2c59ab6f-9dc3-4d63-acef-1b3b9d975efb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Tip nekretnine:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="376" y="20" width="100" height="30" uuid="98c6eee5-4b0e-4f47-badf-932ac08c4755"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("¤#,###").format($P{cenaN})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="290" y="20" width="81" height="30" uuid="83c18e1e-9aea-4f54-ab87-f56737259376"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Nekretnine skuplje od:]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="23" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<textField>
+				<reportElement mode="Opaque" x="70" y="0" width="100" height="30" backcolor="#F347FF" uuid="ded5abba-8182-4a7e-9380-1232704ef782">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b7ea832e-0868-4624-941e-2e8ccfb77eb8"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{prodavac.username}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="170" y="0" width="100" height="30" backcolor="#F347FF" uuid="a65e1d63-819e-43ab-a2d3-671192c86179">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d79b0968-6a9e-4a1c-bd60-096e2ffc4a91"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("¤#,##0.00").format($F{cena})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="270" y="0" width="100" height="30" backcolor="#F347FF" uuid="1043f095-ec8f-4a83-b68a-4076949c41fa">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8d143f0f-88ec-4534-aa44-bb6dccc53a4b"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{adresa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="370" y="0" width="100" height="30" backcolor="#F347FF" uuid="6f1d9598-772b-4354-afb2-c077294c27f2">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e5305993-c6f0-4300-bd53-e426067d2596"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{kvadratura}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="50" splitType="Stretch">
+			<textField>
+				<reportElement x="227" y="20" width="100" height="30" uuid="617a3b8c-6806-4c04-b570-bf39cb253952"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="37" splitType="Stretch">
+			<staticText>
+				<reportElement x="84" y="6" width="143" height="31" uuid="8b743d64-c1ad-4934-a928-6cc9e525a8f8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Prosecna cena nekretnina:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="250" y="6" width="100" height="30" uuid="3aaede7f-9027-4c11-9a40-eb5078a13074"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("¤#,##0.00").format($V{prosecnaCena})]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

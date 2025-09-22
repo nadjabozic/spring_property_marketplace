@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.6.final using JasperReports Library version 6.20.6-5c96b6aa8a39ac1dc6b6bea4b81168e16dd39231  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="izvestajOmiljene" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="066099a2-babb-4bc6-80d0-2e6a84ad62e9">
+	<parameter name="grad" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="korisnik.idKorisnik" class="java.lang.Integer"/>
+	<field name="korisnik.username" class="java.lang.String"/>
+	<field name="nekretnina.kvadratura" class="java.lang.Integer"/>
+	<field name="nekretnina.cena" class="java.lang.Integer"/>
+	<field name="nekretnina.adresa" class="java.lang.String"/>
+	<field name="nekretnina.tipnekretnine.idTipNekretnine" class="java.lang.Integer"/>
+	<field name="nekretnina.tipnekretnine.naziv" class="java.lang.String"/>
+	<field name="nekretnina.prodavac.username" class="java.lang.String"/>
+	<variable name="brojKorisnika" class="java.lang.Integer" calculation="DistinctCount">
+		<variableExpression><![CDATA[$F{korisnik.idKorisnik}]]></variableExpression>
+	</variable>
+	<group name="Group1">
+		<groupExpression><![CDATA[$F{nekretnina.tipnekretnine.idTipNekretnine}]]></groupExpression>
+		<groupHeader>
+			<band height="89">
+				<staticText>
+					<reportElement x="160" y="12" width="101" height="31" uuid="60f2bf7a-12db-4754-93c2-6826cd74279b"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[Tip nekretnine:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="280" y="10" width="100" height="30" uuid="af74b4d9-2448-421d-9340-0e725a8777cc"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{nekretnina.tipnekretnine.naziv}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement mode="Opaque" x="31" y="68" width="90" height="21" backcolor="#0887FF" uuid="cd35d140-0455-4388-95bd-c587aa0e89b2"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[Username]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="121" y="68" width="110" height="21" backcolor="#0887FF" uuid="916d425b-0f8d-406c-88f5-07e90d5e84d5"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[Kvadratura]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="231" y="68" width="100" height="21" backcolor="#0887FF" uuid="915ffe59-aba2-41f4-8612-410323b91cc5"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[Cena]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="331" y="68" width="100" height="21" backcolor="#0887FF" uuid="a5ec9127-14a6-4ac6-b5f0-907a07218671"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[Adresa]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="430" y="68" width="101" height="21" backcolor="#0887FF" uuid="0b464189-c702-432e-8c60-63196ee57b8c"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[Prodavac]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="35"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="200" y="10" width="171" height="61" uuid="43b0a19e-63cd-4dd9-bce9-4f7c057f5f51"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Izveštaj o omiljenim nekretninama]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="64" splitType="Stretch">
+			<textField>
+				<reportElement x="320" y="11" width="100" height="30" uuid="bc5ab6e9-180b-45df-818e-0368f6ac181b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{grad}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="180" y="11" width="101" height="31" uuid="2c56c858-67ef-4087-8107-a080283a9685"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Grad:]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="22" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="31" splitType="Stretch">
+			<textField>
+				<reportElement mode="Opaque" x="30" y="0" width="90" height="30" backcolor="#FFCF0F" uuid="2a656f26-de67-4f57-9776-e6298860783a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e43db23c-43fc-4199-9d1d-db191291233e"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{korisnik.username}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="120" y="0" width="110" height="30" backcolor="#FFCF0F" uuid="41b737c1-8b8a-4084-9edc-6687c8566056">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="944fc623-70c4-43b2-8d01-dd4ba615129a"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{nekretnina.kvadratura}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="230" y="0" width="100" height="30" backcolor="#FFCF0F" uuid="d44b66c4-67dc-4671-b3b1-e7249cf5fa18">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="fc1e4b08-2c0a-4cdc-aa01-da165cfa6531"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("¤#,##0.00").format($F{nekretnina.cena})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="330" y="0" width="100" height="30" backcolor="#FFCF0F" uuid="8c3307d8-3ded-47b0-be1c-4ca5a1443fd8">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4eb65b6e-143c-4e83-98cf-1854525fd3bb"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{nekretnina.adresa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="431" y="0" width="100" height="30" backcolor="#FFCF0F" uuid="2e15cbb4-f6f9-428d-b5cb-4c179429d978"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{nekretnina.prodavac.username}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="227" y="12" width="100" height="30" uuid="436262bd-d79e-494d-835f-bb8b6f842364"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch">
+			<textField>
+				<reportElement x="290" y="6" width="100" height="30" uuid="b767edca-7b0a-4dd6-a391-997b2b0557e5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{brojKorisnika}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="110" y="10" width="161" height="31" uuid="a91e4767-74b0-47b4-8d89-bf25772f21f7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Broj korisnika koji je oznacilo nekretninu omiljenom:]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>
